@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AI - News</title>
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/9b9c6de4-c316-4a6b-9a9b-385af21a6910/AI%CC%88%20logo%20(PFP).png?v=1735853536959"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .news-container {
+        margin-top: 70px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* One card per row */
+        gap: 20px;
+      }
+
+      .news-card {
+        display: flex; /* Horizontal layout */
+        flex-direction: row; /* Image and text side by side */
+        align-items: flex-start; /* Align items to the top */
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: left;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 240px; /* Adjusted height */
+      }
+
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .news-image {
+        flex-shrink: 0;
+        width: 200px; /* Larger image width */
+        height: 200px; /* Larger image height */
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px; /* Space between image and text */
+      }
+
+      .news-content-container {
+        flex: 1; /* Let the content fill the remaining space */
+      }
+
+      .news-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 5px; /* Space below the title */
+      }
+
+      .news-date {
+        font-size: 14px;
+        color: #888;
+        margin: 0 0 15px; /* Space below the date */
+      }
+
+      .news-content {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Mobile Optimizations */
+      @media (max-width: 768px) {
+        .news-grid {
+          grid-template-columns: 1fr; /* Single column for small screens */
+        }
+
+        .news-card {
+          flex-direction: column; /* Stack image and content vertically */
+          height: auto; /* Let the card height adjust based on content */
+        }
+
+        .news-image {
+          width: 100%; /* Full width on smaller screens */
+          height: 200px; /* Keep image height consistent */
+          margin-right: 0; /* Remove right margin */
+          margin-bottom: 15px; /* Add space below the image */
+        }
+
+        .news-title {
+          font-size: 20px; /* Adjust title size for smaller screens */
+        }
+
+        .news-date {
+          font-size: 12px; /* Adjust date size */
+        }
+
+        .news-content {
+          font-size: 14px; /* Reduce content size for readability */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar content -->
+    <nav class="navbar ibm-plex-mono-semibold">
+      <div class="navbar-container">
+        <a href="/">
+          <img
+            src="https://cdn.glitch.global/9b9c6de4-c316-4a6b-9a9b-385af21a6910/AI%CC%88%20logo%20(PFP).png?v=1735853536959"
+            alt="Logo"
+          />
+        </a>
+        <button class="navbar-toggler" id="navbar-toggler">&#9776;</button>
+        <div class="navbar-links" id="navbar-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/news" class="nav-link">News</a>
+          <a href="/projects" class="nav-link">Projects</a>
+          <a href="/era3" class="nav-link">Era 3</a>
+          <a href="/aspectos" class="nav-link">aOS</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 class="main-title">MOST RELIABLE NEWS</h1>
+      <p class="text-center">
+        Get the latest news about updates, delays, and new stuff related to
+        anything ranging from website updates to new projects.
+      </p>
+      <div class="news-container">
+        <h2 class="subtitle">Latest News</h2>
+        <div class="news-grid">
+          <div class="news-card">
+            <img
+              src="https://cdn.glitch.global/9b9c6de4-c316-4a6b-9a9b-385af21a6910/A%C3%8F.png?v=1735433485158"
+              alt="News Image"
+              class="news-image"
+            />
+            <div
+              class="news-content-container"
+              style="cursor: pointer"
+              onclick="window.location='/news/brand-new-website/';"
+            >
+              <h2 class="news-title">Official Website Launch</h2>
+              <p class="news-date">January 29, 2024</p>
+              <p class="news-content">
+                I have finally finished the website! Learn more about the
+                features that I have added to my website, why it's better to
+                make my own website, and what features I will be adding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <p>&copy; 2025 AIGamesDeveloper. All Rights Reserved.</p>
+        </div>
+        <div class="footer-right">
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://scratch.mit.edu/users/AIGamesDeveloper"
+                target="_blank"
+                aria-label="Scratch"
+                >Scratch</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/themagicalbanana"
+                target="_blank"
+                aria-label="GitHub"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://aidev.weebly.com"
+                target="_blank"
+                aria-label="Weebly"
+                >Old Website</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
