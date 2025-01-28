@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AI - Era 3</title>
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/9b9c6de4-c316-4a6b-9a9b-385af21a6910/AI%CC%88%20logo%20(PFP).png?v=1735853536959"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Title Section Styling */
+      .title-section {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 175px 50px 450px; /* Fallback padding */
+        min-height: 29vh; /* Ensures it takes up at least the full viewport height */
+        display: flex; /* Center content */
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center; /* Vertically center content */
+      }
+
+      @media (max-width: 768px) {
+        .title-section {
+          padding: 175px 50px 250px; /* Adjusted bottom padding for mobile devices */
+          min-height: auto;
+        }
+
+        .navbar-toggler {
+          display: block;
+          color: #fff;
+        }
+
+        .navbar.scrolled .navbar-toggler {
+          display: block;
+          color: #000000;
+        }
+
+        .navbar-links {
+          display: none;
+          flex-direction: column;
+          gap: 10px;
+          background-color: #000000;
+          color: #fff;
+          padding: 10px;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          width: 100%;
+          border-radius: 0 0 8px 8px;
+        }
+
+        .navbar-links.open {
+          display: block;
+        }
+
+        .navbar-links {
+          text-align: center;
+        }
+
+        .navbar.scrolled .navbar-links {
+          display: none;
+          flex-direction: column;
+          gap: 10px;
+          background-color: #f1f1f1;
+          color: #000;
+          padding: 10px;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          width: 100%;
+          border-radius: 0 0 8px 8px;
+        }
+
+        .navbar.scrolled .navbar-links.open {
+          display: block;
+        }
+
+        .navbar.scrolled .navbar-links {
+          text-align: center;
+        }
+      }
+
+      /* Default navbar style */
+      .navbar {
+        background-color: black; /* Initial color */
+        transition: background-color 0.5s;
+      }
+
+      /* Navbar style after scrolling past a certain point */
+      .navbar.scrolled {
+        background-color: white;
+      }
+
+      /* Links inside the navbar */
+      .nav-link {
+        color: white; /* Default color for black navbar */
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 4px;
+        transition: color 0.3s ease;
+      }
+
+      /* Change link color when navbar is scrolled */
+      .navbar.scrolled .nav-link {
+        color: #000;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .era3-descriptions {
+        padding-bottom: 50px;
+      }
+
+      .subtitle {
+        font-size: 36px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+
+      .upcoming-date {
+        font-size: 14px;
+        color: #888;
+        margin: 0 0 15px; /* Space below the date */
+      }
+
+      .upcoming-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 5px; /* Space below the title */
+      }
+
+      .status {
+        font-size: 14px;
+        color: #1c1c1c;
+        font-weight: bold;
+        margin: 0 0 15px; /* Space below the title */
+      }
+
+      .planned {
+        color: #03925e;
+      }
+
+      .development {
+        color: #1ee548;
+      }
+
+      .canceled {
+        color: #e51e1e;
+      }
+
+      .unshared {
+        color: #670392;
+      }
+
+      .postponed {
+        color: #e5b21e;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 4 projects per row */
+        gap: 20px;
+        margin: 25px auto;
+        max-width: 1350px;
+      }
+
+      .project-card {
+        text-align: center;
+        border: 1px solid #ddd; /* Optional: adds a light border */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .project-card img {
+        width: 100%; /* Full width of the card */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+      }
+
+      @media (max-width: 1024px) {
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr); /* 3 projects per row */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 projects per row */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .projects-grid {
+          grid-template-columns: 1fr; /* 1 project per row */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar content -->
+
+    <nav class="navbar ibm-plex-mono-semibold">
+      <div class="navbar-container">
+        <a href="/">
+          <img
+            src="https://cdn.glitch.global/9b9c6de4-c316-4a6b-9a9b-385af21a6910/AI%CC%88%20logo%20(PFP).png?v=1735853536959"
+            alt="Logo"
+          />
+        </a>
+        <button class="navbar-toggler" id="navbar-toggler">&#9776;</button>
+        <div class="navbar-links" id="navbar-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/news" class="nav-link">News</a>
+          <a href="/projects" class="nav-link">Projects</a>
+          <a href="/era3" class="nav-link">Era 3</a>
+          <a href="/aspectos" class="nav-link">aOS</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Title Section with black background -->
+    <div class="title-section">
+      <h1 class="main-title">ONE GIANT LEAP.</h1>
+      <p class="text-center">
+        Era 3 displays a new style for creating projects, proving its
+        superiority to the other eras.
+      </p>
+    </div>
+
+    <div class="container">
+      <h4 class="subtitle">What is Era 3?</h4>
+      <p class="text-center era3-descriptions">
+        Era 3 is the next period in my Scratch career when it comes to making
+        projects. Project quality will increase significantly, showing that it's
+        better than the previous Era, Era 2. Previously called Generations,
+        these would usually be different time periods for projects. Eras are
+        usually separated by quality of project, which is how I originally
+        thought of them in the first place. Era 1 lasted from August 28, 2020 to
+        May 4th, 2021. Era 2 lasted from May 5th, 2021 to June 10th, 2024. Era 3
+        started on September 25th, 2024, with no confirmed end date. Currently,
+        it's looking like an end date of 2025-2026, but it all depends.
+      </p>
+      <h4 class="subtitle">Projects for all.</h4>
+      <p class="text-center era3-descriptions">
+        When making projects,I have to consider my community and what they want,
+        based on what they have liked. Era 3 will have projects that a majority
+        of people will enjoy hopefully. All types of devices will be considered,
+        whether you are on a computer, or on a touchscreen device. There won't
+        be any restrictions on what you can play projects on.
+      </p>
+
+      <h4 class="subtitle">Bigger and Better</h4>
+      <p class="text-center era3-descriptions">
+        Projects in Era 3 will be bigger. There will be more code included in
+        these projects. The main reason why is so that the project runs very
+        well with no flaws at all. I want to make sure that the project runs
+        perfectly without any bugs/glitches occuring, ruining the experience. I
+        will spend tons of time working on these projects in order to make them
+        nearly flawless.
+      </p>
+
+      <h4 class="subtitle">Are You Prepared?</h4>
+      <p class="text-center era3-descriptions">
+        Expect a new project from Era 3 every 2-4 months, meaning that there
+        will be 3-6 projects a year. Currently, I have multiple projects in
+        development right now. Below, you will see a description of the project,
+        status of the project, percentage done, and expected release date. These
+        are subject to change at any time for any reason such as issues with
+        life, work, or any other things.
+      </p>
+
+      <h4 class="subtitle">Upcoming Era 3 Projects</h4>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="placeholder.png" alt="Thumbnail Not Released" />
+          <h4 class="upcoming-title">Days until 2050</h4>
+          <p class="upcoming-date">February 7, 2025</p>
+          <p class="status">Status: <span class="planned">Planned</span></p>
+        </div>
+        <div class="project-card">
+          <img
+            src="https://uploads.scratch.mit.edu/get_image/project/1056491702_204x163.png"
+            alt="Project"
+          />
+          <h4 class="upcoming-title">aOS 3</h4>
+          <p class="upcoming-date">2025-2026</p>
+          <p class="status">
+            Status: <span class="development">In Development</span>
+          </p>
+        </div>
+        <div class="project-card">
+          <img
+            src="https://uploads.scratch.mit.edu/get_image/project/1056540832_204x163.png"
+            alt="Project"
+          />
+          <h4 class="upcoming-title">aOS 3 Pro</h4>
+          <p class="upcoming-date">2025-2026</p>
+          <p class="status">Status: <span class="postponed">Postponed</span></p>
+        </div>
+        <div class="project-card">
+          <img src="placeholder.png" alt="Thumbnail Not Released" />
+          <h4 class="upcoming-title">Penalty Kick Simulator</h4>
+          <p class="upcoming-date">October 25, 2025</p>
+          <p class="status">Status: <span class="postponed">Postponed</span></p>
+        </div>
+        <div class="project-card">
+          <img
+            src="https://uploads.scratch.mit.edu/get_image/project/1035889822_204x163.png"
+            alt="Project"
+          />
+          <h4 class="upcoming-title">Scratch Royale</h4>
+          <p class="upcoming-date">2026</p>
+          <p class="status">
+            Status: <span class="canceled">Possibly Canceled</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <p>&copy; 2025 AIGamesDeveloper. All Rights Reserved.</p>
+        </div>
+        <div class="footer-right">
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://scratch.mit.edu/users/AIGamesDeveloper"
+                target="_blank"
+                aria-label="Scratch"
+                >Scratch</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/themagicalbanana"
+                target="_blank"
+                aria-label="GitHub"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://aidev.weebly.com"
+                target="_blank"
+                aria-label="Weebly"
+                >Old Website</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
