@@ -374,3 +374,42 @@ footer {
     margin: 10px 0;
   }
 }
+
+/* Contact Form Styles */
+.contact-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.captcha-container {
+  margin: 15px 0;
+}
+
+/* Adjust button styling to match website */
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+}
